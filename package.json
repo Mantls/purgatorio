@@ -10,7 +10,10 @@
     "zod": "^3.23.8"
   },
   "scripts": {
-    "make-client": "docker build -t dante-relay-client:latest -f dockerfiles/client.Dockerfile .",
-    "make-server": "docker build -t dante-relay-server:latest -f dockerfiles/server.Dockerfile ."
+    "docker-client": "docker build -t dante-relay-client:latest -f dockerfiles/client.Dockerfile .",
+    "docker-server": "docker build -t dante-relay-server:latest -f dockerfiles/server.Dockerfile .",
+    "make": "npx tsc",
+    "client": "node build/client.js",
+    "server": "node build/server.js"
   }
 }
