@@ -2,7 +2,8 @@ import { randomUUID } from "node:crypto";
 import { WebSocketServer, WebSocket } from "ws";
 import { DanteRelayPayload } from "./client.js";
 
-const wss = new WebSocketServer({ port: 8080 });
+const PORT = parseInt(process.env["PORT"] ?? "8080");
+const wss = new WebSocketServer({ port: PORT });
 const connections: Map<string, WebSocket> = new Map();
 
 console.log(`Starting WebSocketServer on: ${JSON.stringify(wss.address())}`);

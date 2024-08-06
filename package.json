@@ -9,5 +9,8 @@
     "ws": "^8.18.0",
     "zod": "^3.23.8"
   },
-  "scripts": {}
+  "scripts": {
+    "make-client": "docker build -t dante-relay-client:latest -f dockerfiles/client.Dockerfile .",
+    "make-server": "docker build -t dante-relay-server:latest -f dockerfiles/server.Dockerfile ."
+  }
 }
