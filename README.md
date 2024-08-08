@@ -16,8 +16,6 @@ Simultaneously it redistributes received Multicast messages from other clients t
 
 _NOTE_ do not put more than one client on a subnet as this might lead to message loops.
 
-<<<<<<< HEAD
-=======
 ## Requirements
 
 - `node.js v20.15 lts`
@@ -34,7 +32,6 @@ npm run build
 this will clean the directory, install dependencies via npm and compile typescript files to `./build`.
 
 #### Usage
->>>>>>> 850b91e (add build script; more readme)
 
 The Client is configured via a handful of environment Variables
 
