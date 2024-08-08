@@ -16,6 +16,25 @@ Simultaneously it redistributes received Multicast messages from other clients t
 
 _NOTE_ do not put more than one client on a subnet as this might lead to message loops.
 
+<<<<<<< HEAD
+=======
+## Requirements
+
+- `node.js v20.15 lts`
+- `npm`
+
+## Installation
+
+You may simply run
+
+```bash
+npm run build
+```
+
+this will clean the directory, install dependencies via npm and compile typescript files to `./build`.
+
+#### Usage
+>>>>>>> 850b91e (add build script; more readme)
 
 The Client is configured via a handful of environment Variables
 
@@ -30,6 +49,19 @@ TARGETS="225.0.1.1:5004,225.0.1.2:5004" INTERFACE_ADDRESS="172.16.220.13" SERVER
 ```
 
 ## Docker 
+
+via Docker:
+
+Server:
+
+```bash
+docker run --net=host --rm --name server -e PORT=8080 purgatorio-server:latest
+```
+Client:
+
+```bash
+docker run --net=host --rm --name client -e TARGETS="225.0.1.1:5004,225.0.1.2:5004" -e INTERFACE_ADDRESS="172.16.220.13" -e SERVER_ADDR="ws://127.0.0.1:8080" purgatorio-client:latest
+```
 
 Pre-Built Images (linux/amd64) for both Client and Server can be found here:
 

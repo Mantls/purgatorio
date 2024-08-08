@@ -14,6 +14,7 @@
     "docker-server": "docker build -t purgatorio-server:latest -f dockerfiles/server.Dockerfile .",
     "make": "npx tsc",
     "client": "node build/client.js",
-    "server": "node build/server.js"
+    "server": "node build/server.js",
+    "build": "(rm -rf node_modules || true) && npm install && npm run make"
   }
 }
