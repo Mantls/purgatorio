@@ -1,6 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { WebSocketServer, WebSocket } from "ws";
 import { DanteRelayPayload } from "./client.js";
+import { parse } from "node:path";
 
 const PORT = parseInt(process.env["PORT"] ?? "8080");
 const wss = new WebSocketServer({ port: PORT });
@@ -16,7 +17,7 @@ wss.on("connection", (ws) => {
   ws.on("message", (msg) => {
     console.log(`${id}: Received Message: ${msg}`);
     const parsed: DanteRelayPayload = JSON.parse(msg.toString());
-    console.log(parsed);
+    console.log(parsed.payload.toString());
     for (const [con_id, con] of connections) {
       if (id == con_id) continue; // dont mirror
       con.send(msg);
