@@ -29,7 +29,7 @@ ws.on("open", () => {
 });
 ws.on("message", (msg) => {
   const parsed: DanteRelayPayload = JSON.parse(msg.toString());
-  send_client.send(JSON.stringify(parsed), parsed.dst_port, parsed.dst_addr);
+  send_client.send(parsed.payload, parsed.dst_port, parsed.dst_addr);
 });
 ws.on("error", (err) => {
   console.log(`${err.name}:${err.message}; Closing connection.`);
