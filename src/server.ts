@@ -16,7 +16,7 @@ wss.on("connection", (ws) => {
 
   ws.on("message", (msg) => {
     const parsed: DanteRelayPayload = JSON.parse(msg.toString());
-    console.log(parsed.payload.toString());
+    console.log(parsed.dst_addr, parsed.payload.length);
     for (const [con_id, con] of connections) {
       if (id == con_id) continue; // dont mirror
       con.send(msg);
