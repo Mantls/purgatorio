@@ -15,7 +15,6 @@ wss.on("connection", (ws) => {
   console.log(`Opened Websocket Connection ${id}`);
 
   ws.on("message", (msg) => {
-    console.log(`${id}: Received Message: ${msg}`);
     const parsed: DanteRelayPayload = JSON.parse(msg.toString());
     console.log(parsed.payload.toString());
     for (const [con_id, con] of connections) {

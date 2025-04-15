@@ -65,7 +65,7 @@ for (const [ip, port] of targets) {
   });
 
   listen_client.on("message", function (message, remote) {
-    console.log(`${remote.address}:${remote.port} => ${message.toString()}`);
+    console.log(`${remote.address}:${remote.port} => ${message.length}`);
     const relay_payload: DanteRelayPayload = {
       dst_addr: ip,
       dst_port: port_num,
